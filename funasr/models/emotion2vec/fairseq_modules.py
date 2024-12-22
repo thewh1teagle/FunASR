@@ -261,7 +261,7 @@ def compute_mask_indices(
                 [mask_idc[j] + offset for j in range(len(mask_idc)) for offset in range(lengths[j])]
             )
 
-        mask_idcs.append(np.unique(mask_idc[mask_idc < sz]))
+        mask_idcs.append(np.unique(mask_idc[mask_idc < sz.numpy()]))
 
     min_len = min([len(m) for m in mask_idcs])
     for i, mask_idc in enumerate(mask_idcs):

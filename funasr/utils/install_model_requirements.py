@@ -1,10 +1,13 @@
 import subprocess
-
+import shutil
 
 def install_requirements(requirements_path):
     try:
+        cmd = ["pip", "install", "-r", requirements_path]
+        if shutil.which('uv'):
+            cmd.insert(0, 'uv')
         result = subprocess.run(
-            ["pip", "install", "-r", requirements_path],
+            cmd,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,

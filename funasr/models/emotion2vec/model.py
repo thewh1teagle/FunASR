@@ -162,6 +162,8 @@ class Emotion2vec(torch.nn.Module):
         if self.norm is not None:
             x = self.norm(x)
 
+    
+        return x
         if features_only:
             if remove_extra_tokens:
                 x = x[:, feature_extractor.modality_cfg.num_extra_tokens :]
@@ -265,3 +267,13 @@ class Emotion2vec(torch.nn.Module):
             results.append(result_i)
 
         return results, meta_data
+
+
+    def export(
+        self,
+        **kwargs,
+    ):
+        from .export_meta import export_rebuild_model
+
+        models = export_rebuild_model(model=self, **kwargs)
+        return models

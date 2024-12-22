@@ -1,3 +1,4 @@
+runtime/android/AndroidClient/.gradle
 .idea
 ./__pycache__/
 */__pycache__/
@@ -22,8 +23,9 @@ modelscope
 samples
 .ipynb_checkpoints
 outputs*
-emotion2vec*
 GPT-SoVITS*
 modelscope_models
 examples/aishell/llm_asr_nar/*
 *egg-info
+*.wav
+*.onnx
